@@ -1,11 +1,93 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
+int main()
+{
+	int a[4] = { 1, 2, 3, 4 };
+	int* ptr1 = (int*)(&a + 1);  //(int *)强转为整型指针
+	int* ptr2 = (int*)((int)a + 1);//a强转为int型，+1相当于加了一个字节
+	printf("%x,%x", ptr1[-1], *ptr2);  //ptr1[-1]形如 *(ptr1 - 1)
+	return 0;
+}
+*/
+/*
+//整数的比较规则
+int int_cmp(const void* p1, const void* p2)
+{
+	return (*(int*)p1 - *(int*)p2);
+}
+//交换  
+void _swap(void* p1, void* p2, int size)
+{
+	int i = 0;
+	for (i = 0; i < size; i++)
+	{
+		char tmp = *((char*)p1 + i);
+		*((char*)p1 + i) = *((char*)p2 + i);
+		*((char*)p2 + i) = tmp;
+	}
+}
+void bubble(void* base, int count, int size, int(*cmp)(void*, void*))
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = 0; j < count - i - 1; j++)
+		{
+			//形如 cmp(a,b) {return a - b;}
+			if (cmp((char*)base + j * size, (char*)base + (j + 1) * size) > 0)
+			{
+				_swap((char*)base + j * size, (char*)base + (j + 1) * size, size);
+			}
+		}
+	}
+}
+int main()
+{
+	int arr[] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 0 };
+	//char *arr[] = {"aaaa","dddd","cccc","bbbb"};
+	int i = 0;
+	bubble(arr, sizeof(arr) / sizeof(arr[0]), sizeof(int), int_cmp);
+	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+	return 0;
+}
+*/
+/*
+void BubbleSort(int ar[], int n)
+{
+	int i = 0;
+	for (i = 0; i < n - 1; ++i)
+	{
+		for (int j = 0; j < n - 1 - i; ++j)
+		{
+			if (ar[j] > ar[j + 1])
+			{
+				int tmp = ar[j];
+				ar[j] = ar[j + 1];
+				ar[j + 1] = tmp;
+			}
+		}
+	}
+}
+void PrintfArray(int ar[], int n)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		printf("%d ", ar[i]);
+	}
+	printf("\n");
+}
 int compare(const void* elem1, const void* elem2)
 {
-   	//return (*(int*)elem1 - *(int*)elem2);  // >0 <0  ==0
-	return (*(int*)elem2 - *(int*)elem1);
+	return (*(int*)elem1 - *(int*)elem2);  // 三种情况  >0 <0  ==0
+	//return (*(int*)elem2 - *(int*)elem1);
 }
 void main()
 {
@@ -13,12 +95,10 @@ void main()
 	int n = sizeof(ar) / sizeof(ar[0]);
 	PrintfArray(ar, n);
 	//BubbleSort(ar,n);
-	qsort(ar, n, sizeof(ar[0], compare));//回调函数
+	qsort(ar, n, sizeof(ar[0]), compare);//回调函数
 	PrintfArray(ar, n);
 }
 */
-
-
 /*
 void main()
 {
@@ -76,7 +156,6 @@ int Min(int a, int b)
 {
 	return a > b ? b : a;
 }
-
 /////////////////////////
 /////////////////////////
 //通用函数
@@ -84,14 +163,14 @@ int Min(int a, int b)
 int fun(int a, int b, int (*pfun)(int, int))
 {
 	//return (*pfun)(a,b)
-	return pfun(a, b);
+	return pfun(a, b);//上面一行的简写
 }
 
 void main()
 {
 	int a = 10;
 	int b = 20;
-	int res = fun(a, b, Min);
+	int res = fun(a, b, Max);
 	printf("res = %d\n", res);
 }
 */
@@ -110,6 +189,22 @@ int main(int argc,char*argv[])
 	scanf("%d %d", &a, &b);
 	int res = fun(a, b);
 	printf("%d + %d = %d\n", a, b, res);
+	return 0;
+}
+*/
+/*
+int fun(int a, int b)
+{
+	return a + b;
+}
+//argc = argument count  参数个数
+//argv = argument value  参数值
+//  0   1    2
+// ADD  10   20
+int main(int argc, char* argv[])
+{
+	int res = fun(atoi(argv[1]), atoi(argv[2]));  //atoi:将字符串转换成整数
+	printf("%d + %d = %d\n", atoi(argv[1]), atoi(argv[2]), res);
 	return 0;
 }
 */
