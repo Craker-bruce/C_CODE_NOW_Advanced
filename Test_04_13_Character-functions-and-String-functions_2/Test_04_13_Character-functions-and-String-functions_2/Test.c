@@ -23,7 +23,7 @@ void* my_memcpy(void* dest, const void* src, size_t count)
 	else
 	{
 		pdest = pdest + count -1;
-		psrc = psrc + count + 1;
+		psrc = psrc + count - 1;
 		while (count-- != 0)
 		{
 			*pdest-- = *psrc--;
@@ -34,11 +34,11 @@ void* my_memcpy(void* dest, const void* src, size_t count)
 }
 void main()
 {
-	char ar1[] = "HefloBit";
+	char ar1[] = "helsoword";
 	char ar2[] = "ABC";
 	printf("%s\n", ar1);
 	//memcpy(ar1, ar2, 3);
-	my_memcpy(ar1 + 3, ar1, 3);
+	my_memcpy(ar1 + 3, ar1, 4);
 	printf("%s\n", ar1);
 }
 
