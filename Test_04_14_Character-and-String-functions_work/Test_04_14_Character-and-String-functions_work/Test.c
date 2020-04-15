@@ -13,7 +13,7 @@ char* my_strstr(const char* str1, const char* str2)
 
 	if (*str2 == '\0')
 		return NULL;
-
+	 
 	while (*cp)
 	{
 		s1 = cp;
