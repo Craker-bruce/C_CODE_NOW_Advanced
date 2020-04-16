@@ -2,6 +2,24 @@
 #include<stdio.h>
 #include<stdbool.h>
 
+typedef struct Test
+{
+
+	int b;   //4
+	char d;  //1+3
+	double c;//8 
+
+
+}Test;
+void main()
+{
+	Test t;
+	printf("%d\n", sizeof(t));
+}
+
+
+
+/*
 void main()
 {
 	int n = 0;
@@ -18,7 +36,7 @@ void main()
 		printf("\n");
 	}
 }
-/*
+
 typedef union IpAddress
 {
 	struct
