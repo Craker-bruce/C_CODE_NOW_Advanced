@@ -1,0 +1,4 @@
+﻿  Test.c
+C:\Users\13279\Desktop\C\GitHub_Clone\C_CODE_NOW_Advanced\Test_04_16_Custom-type\Test_04_16_Custom-type\Test.c(10,23): warning C4013: “malloc”未定义；假设外部返回 int
+C:\Users\13279\Desktop\C\GitHub_Clone\C_CODE_NOW_Advanced\Test_04_16_Custom-type\Test_04_16_Custom-type\Test.c(10,1): warning C4047: “初始化”:“int *”与“int”的间接级别不同
+  Test_04_16_Custom-type.vcxproj -> C:\Users\13279\Desktop\C\GitHub_Clone\C_CODE_NOW_Advanced\Test_04_16_Custom-type\Debug\Test_04_16_Custom-type.exe
