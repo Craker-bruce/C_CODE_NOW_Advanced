@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdbool.h>
-
+/*
 typedef struct Test
 {
 
@@ -16,7 +16,7 @@ void main()
 	Test t;
 	printf("%d\n", sizeof(t));
 }
-
+*/
 
 
 /*
@@ -253,7 +253,7 @@ void main()
 	Test t;
 	printf("Test size = %d", sizeof(Test));
 }
-
+*/
 #pragma pack(2)
 typedef struct Test
 {
@@ -271,7 +271,7 @@ void main()
 	Test t;
 	printf("Test size = %d", sizeof(Test));
 }
-
+/*
 typedef struct Test
 {
 	short a; //2 + 6
@@ -288,7 +288,8 @@ void main()
 	Test t;
 	printf("Test size = %d", sizeof(Test));
 }
-
+*/
+/*
 #pragma pack(4)
 typedef struct Test //8
 {
@@ -303,7 +304,8 @@ void main()
 	printf("Test size = %d", sizeof(Test));
 
 }
-
+*/
+/*
 typedef struct Test //8
 {
 	char a;     //1 + 3
@@ -316,7 +318,8 @@ void main()
 	printf("Test size = %d", sizeof(Test));
 
 }
-
+*/
+/*
 typedef struct Test //8
 {
 	char a;     //1 + 7
@@ -329,7 +332,8 @@ void main()
 	printf("Test size = %d", sizeof(Test));
 
 }
-
+*/
+/*
 int main()
 {
 	char str[] = "- This, a sample string.";
