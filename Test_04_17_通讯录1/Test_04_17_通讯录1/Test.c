@@ -40,6 +40,7 @@ int main()
 			SORT1(&con);
 			break;
 		case 0:
+			DestroyContact(&con); //退出时销毁
 			printf("退出程序\n");
 			return 0;
 		default:

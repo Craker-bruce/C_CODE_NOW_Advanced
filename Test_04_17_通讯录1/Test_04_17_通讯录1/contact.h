@@ -37,8 +37,9 @@ typedef struct PeoInfo
 //通讯录
 typedef struct Contact
 {
-	PeoInfo data[MAX];
-	int sz;
+	PeoInfo* data;
+	int sz;//有效元素的个数
+	int capacity;//容量
 }Contact;
 
 void InitContact(Contact* pcon);

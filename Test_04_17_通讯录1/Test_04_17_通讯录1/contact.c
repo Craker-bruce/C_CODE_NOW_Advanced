@@ -1,19 +1,46 @@
 #include "contact.h"
 
+void CheckCapacity(Contact* pcon)
+{
+	if (pcon->sz == pcon->capacity)
+	{
+		//每次扩容双倍
+		PeoInfo* ptr = realloc(pcon->data, (pcon->capacity * 2) * sizeof(PeoInfo));
+		if (ptr != NULL)
+		{
+			pcon->data = ptr;
+			pcon->capacity *= 2;
+			printf("增容成功\n");
+		}
+	}
+}
+void DestroyContact(Contact* pcon)
+{
+	free(pcon->data);
+	pcon->data = NULL;
+	pcon->capacity = 0;
+	pcon->sz = 0;
+}
 //初始化通讯录
 void InitContact(Contact* pcon)
 {
 	assert(pcon);
 	pcon->sz = 0;
-	memset(pcon->data, 0, sizeof(pcon->data));
-
+	//memset(pcon->data, 0, sizeof(pcon->data));
+	pcon->data = (PeoInfo*)calloc(DEFAULT_SZ, sizeof(PeoInfo)); //分配默认大小并清空
+	if (pcon->data == NULL) //检查分配是否成功
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	pcon->capacity = DEFAULT_SZ;
 }
 
 //添加
 void ADD1(Contact* pcon)
 {
 	assert(pcon);
-
+	CheckCapacity(pcon);
 	printf("请输入名字：");
 	scanf("%s", pcon->data[pcon->sz].name);
 	printf("请输入年龄：");
