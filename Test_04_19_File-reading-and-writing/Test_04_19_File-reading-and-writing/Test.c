@@ -1,33 +1,33 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
+//#include<stdio.h>
 
-int main()
-{
-	FILE* fpIn = fopen("Test.c", "r");
-	if (NULL == fpIn)
-	{
-		printf("´íÎó!\n");
-		return -1;
-	}
-	FILE* fpOut = fopen("Test2.txt", "w");
-	if (NULL == fpOut)
-	{
-		fclose(fpIn);
-		printf("´íÎó!\n");
-		return -1;
-	}
-
-	//¿½±´
-	char ch = fgetc(fpIn);
-	while (ch != EOF)
-	{
-		fputc(ch, fpOut);
-		ch = fgetc(fpIn);
-	}
-	fclose(fpIn);
-	fclose(fpOut);
-	return 0;
-}
+//int main()
+//{
+//	FILE* fpIn = fopen("Test.c", "r");
+//	if (NULL == fpIn)
+//	{
+//		printf("´íÎó!\n");
+//		return -1;
+//	}
+//	FILE* fpOut = fopen("Test2.txt", "w");
+//	if (NULL == fpOut)
+//	{
+//		fclose(fpIn);
+//		printf("´íÎó!\n");
+//		return -1;
+//	}
+//
+//	//¿½±´
+//	char ch = fgetc(fpIn);
+//	while (ch != EOF)
+//	{
+//		fputc(ch, fpOut);
+//		ch = fgetc(fpIn);
+//	}
+//	fclose(fpIn);
+//	fclose(fpOut);
+//	return 0;
+//}
 
 /*
 int main()
@@ -94,26 +94,26 @@ void main()
 }
 
 
+*/
+//void main()
+//{
+//	int ar[9] = { 0 };
+//	FILE* fp = fopen("Test.txt","r");
+//	if (NULL == fp)
+//	{
+//		printf("Ê§°Ü!\n");
+//		return;
+//	}
+//	for (int i = 0; i < 9; i++)
+//	{
+//		//scanf("%d", &ar[i]);   //±ê×¼ÊäÈë  -> ¼üÅÌ
+//		fscanf(fp, "%d", &ar[i]);
+//	}
+//	fclose(fp);
+//}
+//
 
-void main()
-{
-	int ar[9] = { 0 };
-	FILE* fp = fopen("Test.txt","r");
-	if (NULL == fp)
-	{
-		printf("Ê§°Ü!\n");
-		return;
-	}
-	for (int i = 0; i < 9; i++)
-	{
-		//scanf("%d", &ar[i]);   //±ê×¼ÊäÈë  -> ¼üÅÌ
-		fscanf(fp, "%d", &ar[i]);
-	}
-	fclose(fp);
-}
-
-
-
+/*
 void main()
 {
 	int ar[] = { 1,2,4,5,6,7,8,9,0 };
@@ -135,3 +135,15 @@ void main()
 	fclose(fp);
 }
 */
+#include<stdio.h>
+int main()
+{
+	FILE* pFile;
+	pFile = fopen("myfile.txt", "w");
+	if (pFile != NULL)
+	{
+		fputs("fopen example", pFile);
+		fclose(pFile);
+	}
+	return 0;
+}
