@@ -245,7 +245,7 @@ void LoadContact(Contact* pct)
 	//char buffer[256] = {0};
 	//fgets(buffer, 256, fp);
 	int i = 0;
-	while (feof(fp) != EOF)
+	while (!feof(fp))
 	{
 		fscanf(fp, "%s %s %d %s %s", pct->data[i].name,
 			pct->data[i].sex,

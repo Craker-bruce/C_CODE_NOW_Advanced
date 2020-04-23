@@ -21,7 +21,7 @@ typedef enum
 }OPER_ENUM;
 
 //#define MAX_CONTACT_SIZE 1000
-#define DEFAULT_CONTACT_SIZE 2
+#define DEFAULT_CONTACT_SIZE 5
 #define MAX_NAME_SIZE 20
 #define MAX_ADDR_SIZE 256
 
