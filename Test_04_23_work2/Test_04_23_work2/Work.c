@@ -2,18 +2,23 @@
 #include <stdio.h>
 
 
-/*
+
 //编写一个函数找出这两个只出现一次的数字
 int FindNumber(int ar[], int n)
 {
-	
+	int res = 0;
+	for (int i = 0; i < n; ++i)
+	{
+		res ^= ar[i];
+	}
+	return res;
 }
 void main()
 {
-	int ar[] = { 1,2,4,6,5,4,3,2,1 };
+	int ar[] = { 1,2,4,3,7,7,3,2,1 };
 	int n = sizeof(ar) / sizeof(ar[0]);
 	printf("value = %d\n", FindNumber(ar, n));
-}
+}/*
 */
 /*
 //写一个宏，计算结构体中某变量相对于首地址的偏移，并给出说明
