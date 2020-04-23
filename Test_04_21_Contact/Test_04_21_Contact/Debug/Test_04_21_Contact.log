@@ -1,0 +1,3 @@
+﻿  Contact.c
+C:\Users\13279\Documents\Go fot it\C\C_CODE_NOW_Advanced\Test_04_21_Contact\Test_04_21_Contact\Contact.h(16,2): warning C4091: “typedef ”: 没有声明变量时忽略“<unnamed-enum-EXIT>”的左侧
+  Test_04_21_Contact.vcxproj -> C:\Users\13279\Documents\Go fot it\C\C_CODE_NOW_Advanced\Test_04_21_Contact\Debug\Test_04_21_Contact.exe
