@@ -63,7 +63,7 @@ void FindPeople(Contact* pc)
 	scanf("%s", &ch);
 	for (size_t i = 0; i < pc->size; ++i)
 	{
-		if (strcmp(pc->data[i].name,ch) == 0)
+		if (strcmp(pc->data[i].name, ch) == 0)
 		{
 			printf("查找成功...\n");
 			printf("*************************************************\n");
@@ -75,10 +75,9 @@ void FindPeople(Contact* pc)
 				pc->data[i].tel,
 				pc->data[i].addr);
 			printf("*************************************************\n");
+			return;
 		}
-		else
-		{
-			printf("查找失败...\n");
-		}
+		printf("查找失败...\n");
 	}
+
 }
