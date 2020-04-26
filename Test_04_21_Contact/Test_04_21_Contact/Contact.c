@@ -3,12 +3,34 @@
 //初始化
 void InitContact(Contact* pc)
 {
-	memset(pc->data, 0, sizeof(pc->data));
+	assert(pc != NULL);
+	pc->capacity = DEFAULT_CONTSCT_SIZE;
+	pc->data = (People*)malloc(sizeof(People) * pc->capacity);
+	assert(pc->data != NULL);
+	memset(pc->data, 0, sizeof(People) * pc->capacity);
 	pc->size = 0;
+	//LoadContact(pc);
+}
+//检查容量函数
+static void CheckCapacity(Contact* pc)
+{
+	if (pc->size >= pc->capacity)
+	{
+		//空间满了
+		//People* new_data = (People*)malloc(sizeof(People) * pc->capacity * 2);
+		People* new_data = (People*)ralloc(pc->data,sizeof(People) * pc->capacity * 2);
+		assert(new_data != NULL);
+		pc->capacity *= 2;
+		pc->data = new_data;
+		printf("扩容成功......\n");
+	}
 }
 //添加函数
 void AddPeople(Contact* pc)
 {
+	assert(pc != NULL);
+	//检查容量
+	//CheckCapacity(pc);
 	printf("请输入要添加的人的信息:>\n");
 	printf("姓名  性别  年龄  电话  地址\n");
 	/*printf("姓名:>");
@@ -36,6 +58,7 @@ void AddPeople(Contact* pc)
 //显示
 void ShowPeople(Contact* pc)
 {
+	assert(pc != NULL);
 	printf("*************************************************\n");
 	printf("%-10s%-8s%-8s%-14s%-30s\n", "姓名", "性别", "年龄", "电话", "住址");
 	//printf("%s", pc->data[pc->size].name);

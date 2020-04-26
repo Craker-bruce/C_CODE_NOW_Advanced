@@ -8,25 +8,25 @@ void menu()
 	printf("***1.ADD         2.DEL   ***\n");
 	printf("***3.FIND        4.MODIFY***\n");
 	printf("***5.SHOW        6.CLEAR ***\n");
-	printf("***7.SORT        0.EXIT  ***\n");
+	printf("***7.SORT        0.QUIT  ***\n");
 	printf("****************************\n");
 
 }
 
-int main()
+int main(int argc, char* argv)
 {
-	int select = 1;
 	Contact con;
 	InitContact(&con);
+	int select = 1;
 	while (select)
 	{
 		menu();
 		printf("ÇëÑ¡Ôñ:>");
 		scanf("%d", &select);
+		if (select == QUIT)
+			break;
 		switch (select)
 		{
-		case EXIT:
-			return;
 		case ADD:
 			AddPeople(&con);
 			break;
